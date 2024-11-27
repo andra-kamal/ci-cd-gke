@@ -18,7 +18,7 @@ spec:
       - name: fast-api
         image: gcr.io/iron-dynamics-440303-r9/fastapi-app:lastest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         resources:
           requests:
             cpu: 200m
