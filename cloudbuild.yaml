@@ -10,6 +10,14 @@ steps:
    # entrypoint: gcloud
     #args: ['run', 'deploy', 'fast-api-test', '--image', 'gcr.io/iron-dynamics-440303-r9/fastapi-app:lastest', '--region', 'us-central1', '--platform', 'managed', --allow-unauthenticated]
   
+  # authenticate to GKE
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud container clusters get-credentials ci-cd-cluster --zone us-central1-f --project iron-dynamics-440303-r9
+
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
     args: 
